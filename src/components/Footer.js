@@ -246,7 +246,7 @@ function Footer() {
 
           <Button
             variant="outlined"
-            sx={{ borderColor: "white", color: "white", marginTop: 2 }}
+            sx={{ borderColor: "white", color: "white", marginTop: 2  , textTransform:"lowercase"}}
           >
             Send
           </Button>
