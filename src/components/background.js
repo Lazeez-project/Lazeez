@@ -1,16 +1,20 @@
-import React from 'react';
-import Rating from '@mui/material/Rating';
+import React from "react";
+import Rating from "@mui/material/Rating";
 import background from "../picture/background.jpg";
 import download from "../picture/download.jpg";
 import backgroundslide from "../picture/backgroundslide.png";
+import londrestrunt from "../picture/londrestrunt.jpg";
 import restrant from "../picture/restrant.jpg";
+import restra from "../picture/restra.jpg";
 import { makeStyles } from "@material-ui/core/styles";
-import Typography from '@mui/material/Typography';
-import { SocialIcon } from 'react-social-icons';
+import Typography from "@mui/material/Typography";
 import { Button } from "@material-ui/core";
+import { FaFacebook } from "react-icons/fa";
+import Box from "@mui/material/Box";
+
+import { FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 
 import SimpleImageSlider from "react-simple-image-slider";
-
 
 const useStyles = makeStyles({
   titleItemRight: {
@@ -18,59 +22,45 @@ const useStyles = makeStyles({
     backgroundColor: "green",
     height: 40,
     width: 120,
-    marginLeft: "40px",
-    marginTop: "40px",
+    marginLeft: "800px",
+    marginTop: "5px",
     textTransform: "capitalize",
   },
-
-  html: {
-    background: "#ECECEC",
-  },
-  h2: {
-    position: "absolute",
-    width: "392px",
-    height: "66.44px",
-    left: "80px",
-    top: "45px",
-    fontfamily: "Cairo",
-    fontstyle: "normal",
-    fontweight: "normal",
-    fontsize: "50px",
-    lineheight: "66px",
-    display: "flex",
-    color: "#007200",
-  },
-  h4: {
-    fontfamily: "Cairo",
-    fontweight: "bold",
-    fontsize: "100px",
-    display: "flex",
-    alignitems: "center",
-    color: "#00000",
-  },
-  h3: {
-    width: "392px",
-    height: "30px",
-    marginLeft: "200px",
-    fontfamily: "Cairo",
-    fontstyle: "normal",
-    fontweight: "normal",
-    fontsize: "50px",
-    display: "flex",
-    color: "#007200",
-  },
-  photo: {
-    height: "590px",
-    width: " 75%",
-
-    marginTop: "2%",
-    marginLeft: "100px",
-  },
-  Item: {
-    align: "left",
+  AvailableDays: {
+    color: "red",
   },
 });
 
+const About = {
+  name: {
+    Name: "Lazezz Resturant",
+    Location: "   Gaza, Nusirat, Rashed st.",
+  },
+  time: {
+    Availablehours: "08:00-16:00",
+    AvailableDays: "St MO Tu We Thr",
+  },
+  contact: {
+    phonenumber: "6767767",
+    email: "lazees@example.com",
+    rate: "2",
+    value: "3",
+  },
+  SocialIcon: {
+    instgramUrl: "https://www.instagram.com/mena.alliances/",
+    facebookUrl: "https://www.facebook.com/MENAALLIANCES",
+    twitterURL: "https://twitter.com/",
+    linkedinURL: "https://www.linkedin.com/",
+  },
+};
+const AvailableDays = {
+  st: "St",
+  sn: "Sn",
+  MO: "Mo",
+  Tu: "Tu",
+  We: "We",
+  Thr: "Thr",
+};
 
 const images = [
   { url: backgroundslide },
@@ -78,134 +68,161 @@ const images = [
 
   { url: background },
   { url: download },
+  { url: londrestrunt },
+  { url: restra },
 ];
 
 const Background = () => {
   const classes = useStyles();
-  const [value, setValue] = React.useState(2);
-      
+
   return (
     <div className={classes.html}>
-      <div>
-        <div className="button" style={{ marginLeft: "60%" }}>
-          <Button
-            variant="text"
-            type="submit"
-            className={classes.titleItemRight}
-          >
-            Menue
-          </Button>
+      <div className="name" style={{ marginLeft: "200px", marginTop: "10px" }}>
+        <h2 style={{ color: "green" }}>{About.name.Name}</h2>
 
-          <Button
-            type="submit"
-            variant="text"
-            className={classes.titleItemRight}
-          >
-            Book Atable
-          </Button>
+        <p>{About.name.Location}</p>
 
-          
-        </div>
-
-        <div className="heading">
-          <Typography
-            style={{ marginLeft: "190px" }}
-            variant="h4"
-            className={classes.h3}
-          >
-            Resturant Name
-          </Typography>
-
-          <Typography style={{ marginLeft: "190px" }}>
-            Gaza, Nusirat, Rashed st.
-          </Typography>
-        </div>
-        <div>
-          <SimpleImageSlider
-            autoPlay={true}
-            autoPlayDelay={4}
-            width={896}
-            height={304}
-            images={images}
-            showBullets={true}
-            showNavs={true}
-            style={{ marginTop: "50px", marginLeft: "200px" }}
-          />
-        </div>
+        <Button variant="text" type="submit" className={classes.titleItemRight}>
+          Menu
+        </Button>
+      </div>
+      <div className="background">
+        <SimpleImageSlider
+          autoPlay={true}
+          autoPlayDelay={4}
+          width={896}
+          height={324}
+          images={images}
+          showBullets={true}
+          showNavs={true}
+          style={{ marginTop: "50px", marginLeft: "200px" }}
+        />
       </div>
 
       <div
         className="AboutRestaurant"
-        style={{ marginLeft: "190px", marginTop: "20px" }}
+        style={{ marginLeft: "200px", marginTop: "30px" }}
       >
-        <Typography variant="h5" className={classes.h3}>
-          About Restaurant :
+        <Typography style={{ fontWeight: "900", color: "green" }}>
+          About Restaurant
         </Typography>
+        <Box sx={{ fontWeight: 500, ml: 2.5 }}>
+          Available Hours: {About.time.Availablehours}
+        </Box>
+        <Box
+          sx={{
+            fontWeight: 520,
+            ml: 2.5,
+            display: "flex",
+            flexDirection: "row",
+          }}
+        >
+          Available Days :
+          <Box
+            sx={{
+              fontWeight: 520,
+              ml: 2.5,
+              border: "solid green 2px",
+              background: "green",
+              width: 50,
+              height: 40,
+              textAlign: "center",
+            }}
+          >
+            {AvailableDays.st}
+          </Box>
+          <Box
+            sx={{
+              fontWeight: 520,
+              ml: 2.5,
+              border: "solid green 2px",
+              background: "green",
+              width: 50,
+              height: 40,
+              textAlign: "center",
+            }}
+          >
+            {AvailableDays.MO}
+          </Box>
+          <Box
+            sx={{
+              fontWeight: 520,
+              ml: 2.5,
+              border: "solid green 2px",
+              background: "green",
+              width: 50,
+              height: 40,
+              marginLeft: 4,
+              textAlign: "center",
+            }}
+          >
+            {AvailableDays.Tu}
+          </Box>
+          <Box
+            sx={{
+              fontWeight: 520,
+              ml: 2.5,
+              border: "solid green 2px",
+              background: "green",
+              width: 50,
+              height: 40,
+            }}
+          >
+            {AvailableDays.We}
+          </Box>
+          <Box
+            sx={{
+              fontWeight: 520,
+              ml: 2.5,
+              border: "solid green 2px",
+              background: "green",
+              width: 50,
+              height: 40,
+              textAlign: "center",
+            }}
+          >
+            {AvailableDays.Thr}
+          </Box>
+        </Box>
 
-        <Typography className={classes.h4}>
-          <span className="span" style={{ fontWeight: "bold" }}>
-            Avilable Hours
-          </span>
-          : 5:00 am - 9:00pm
-        </Typography>
-
-        <Typography className={classes.h4}>
-          <span style={{ fontWeight: "bold" }}>Avilable Days</span>: satrday -
-          thursday
-        </Typography>
-
-        <Typography className={classes.h4}>
-          <span style={{ fontWeight: "bold" }}> Rating</span>
+        <Box sx={{ fontWeight: 500, ml: 2.5 }}>
+          Rating
           <Rating
             name="simple-controlled"
-            value={value}
-            onChange={(event, newValue) => {
-              setValue(newValue);
-            }}
+            value={About.contact.value}
+            onChange={About.contact.rate}
           />
-        </Typography>
+        </Box>
       </div>
 
       <div
-        className="Contact"
-        style={{ marginLeft: "190px", marginTop: "20px" }}
+        className="contact"
+        style={{ marginLeft: "200px", marginTop: "10px" }}
       >
-        <Typography variant="h6" className={classes.h3}>
-          <span style={{ fontWeight: "bold" }}> Contact : </span>
+        <Typography style={{ fontWeight: "900", color: "green" }}>
+          Contact
         </Typography>
-
-        <span style={{ fontWeight: "bold" }}>
-          {" "}
-          Phone: <phone>:970555555 </phone>{" "}
-        </span>
-
-        <Typography>
-          <span style={{ fontWeight: "bold" }}> Email : </span>:
-          <a href="mailto: abc@example.com">Lazez@example.com</a>
-        </Typography>
-        <Typography>
-          <span style={{ fontWeight: "bold" }}> Social Media : </span>
-          <SocialIcon
-            url="https://twitter.com/Lazez"
-            style={{ height: 25, width: 25, margin: 3 }}
-            bgColor="	#808080"
-            border={20}
-          />
-          <SocialIcon
-            url="https://linkedin.com/in/Lazez"
-            style={{ height: 25, width: 25, margin: 3 }}
-            bgColor="	#808080"
-          />
-          <SocialIcon
-            url="https://facebook.com/in/Lazez"
-            style={{ height: 25, width: 25, margin: 3 }}
-            bgColor="	#808080"
-          />
-          <SocialIcon
-            url="https://instagram.com/in/Lazez"
-            style={{ height: 25, width: 25, margin: 3 }}
-            bgColor="	#808080"
-          />
+        <Typography component="div">
+          <Box sx={{ fontWeight: 500, ml: 2.5 }}>
+            Phone Number:
+            {About.contact.phonenumber}
+            <p>Email: {About.contact.email}</p>
+            <p>
+              Social Media :
+              <a href={About.SocialIcon.facebookUrl}>
+                <FaFacebook style={{ color: "blue", marginLeft: "5px" }} />
+              </a>
+              <a href={About.SocialIcon.instgramUrl}>
+                <FaInstagram style={{ color: "red", marginLeft: "5px" }} />
+              </a>
+              <a href={About.SocialIcon.twitterURL}>
+                <FaTwitter style={{ color: "blue", marginLeft: "5px" }} />
+              </a>
+              <a href={About.SocialIcon.linkedinURL}>
+                <FaLinkedin style={{ color: "blue", marginLeft: "5px" }} />
+              </a>
+            </p>
+          </Box>
         </Typography>
       </div>
     </div>
