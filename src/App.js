@@ -1,18 +1,20 @@
-import Footer from './components/Footer';
-import Service from './components/Service';
-import Form from './components/Register';
+// import Footer from './components/Footer';
+// import Service from './components/Service';
+// import Form from './components/Register';
+import Background from './components/background';
 
 
 
 function App() {
   return (
     <div className="App">
-       <Service /> 
+      {/* <Service /> 
       <Footer />
       <Form />
-  
-
-      {/* <Background /> */}
+   */}
+      <Background />
+      
+      ,
     </div>
   );
 }
