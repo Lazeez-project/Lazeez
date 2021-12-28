@@ -27,25 +27,28 @@ const MealCard = (props) => {
         setIsChecked(false);
         setOrder({
             name: meal.title,
-            count : count,
-            price : (count * meal.price)
+            count : count+1,
+            price : ((count+1) * meal.price)
         });
     }
 
     const deleteOne = () => {
         if (count > 0 )
             setCount(count-1)
+        setIsChecked(false);
         setOrder({
             name: meal.title,
-            count : count,
-            price : (count * meal.price)
+            count : count-1,
+            price : ((count-1) * meal.price)
         });
     }
 
-    const addToList = () => {
+    const addToList = (e) => {
         isChecked ? setIsChecked(false) : setIsChecked(true)
-        console.log(order);
 
+        if(e.target.checked){
+            console.log(order);
+        }
     }
 
     return (
