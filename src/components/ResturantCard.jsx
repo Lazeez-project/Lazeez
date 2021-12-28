@@ -6,6 +6,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Rating from '@mui/material/Rating';
+import { Link } from 'react-router-dom';
 
 
 const ResturantCard = (props) => {
@@ -30,7 +31,9 @@ const ResturantCard = (props) => {
                 <Typography gutterBottom variant="p" className="card__rate">
                     Rate : <Rating name="read-only" value={res.rate} readOnly style={{marginRight : '15px'}} />
                 </Typography>
-                <Button href={`:${res.id}`} variant="contained" className="btn" style={{backgroundColor : 'var(--main-color)', marginBottom : '10px'}}>More Details</Button>
+                <Link to={`:${res.id}`}>
+                   <Button variant="contained" className="btn" style={{backgroundColor : 'var(--main-color)', marginBottom : '10px'}}>More Details</Button>
+                </Link>
             </CardActions>
         </Card>
     );

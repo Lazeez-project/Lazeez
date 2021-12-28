@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import TextField from "@material-ui/core/TextField";
-import Button from "@material-ui/core/Button";
 import { Box } from "@mui/system";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
 import Checkbox from "@mui/material/Checkbox";
 
 const defaultValues = {
